@@ -1,0 +1,187 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[64]:
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+xlist = np.linspace(0, 5, 100)
+ylist = np.linspace(0, 5, 100)
+X, Y = np.meshgrid(xlist, ylist)
+Z = (X + Y)/2
+fig,ax=plt.subplots(1,1)
+
+
+cp = ax.contourf(X, Y, Z)
+fig.colorbar(cp) 
+
+# Add a colorbar to a plot
+ax.set_title('Average of 2 Measures, Fine Granularity')
+ax.set_xlabel('measure A granularity')
+ax.set_ylabel('measure B granularity')
+plt.show()
+plt.gcf().subplots_adjust(bottom=0.15)
+
+
+
+# In[44]:
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+xlist = np.linspace(0, 5, 100)
+ylist = np.linspace(0, 5, 100)
+X, Y = np.meshgrid(xlist, ylist)
+Z = (3*X + Y)/4
+fig,ax=plt.subplots(1,1)
+
+
+cp = ax.contourf(X, Y, Z)
+fig.colorbar(cp) 
+
+# Add a colorbar to a plot
+ax.set_title('Weighted Average, Fine Granularity')
+ax.set_xlabel('measure A granularity')
+ax.set_ylabel('measure B granularity')
+plt.show()
+plt.gcf().subplots_adjust(bottom=0.15)
+
+
+
+# In[98]:
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+xlist = np.linspace(0, 5, 100)
+ylist = np.linspace(0, 5, 100)
+X, Y = np.meshgrid(xlist, ylist)
+Z = (np.sin(X*2/3)) + (np.sin(Y*2/3))
+fig,ax=plt.subplots(1,1)
+
+
+cp = ax.contourf(X, Y, Z)
+fig.colorbar(cp) 
+
+# Add a colorbar to a plot
+ax.set_title('Average of 2 Measures, Mid-level Granularity')
+ax.set_xlabel('measure A granularity')
+ax.set_ylabel('measure B granularity')
+plt.show()
+plt.gcf().subplots_adjust(bottom=0.15)
+
+
+# In[61]:
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+xlist = np.linspace(0, 5, 100)
+ylist = np.linspace(0, 5, 100)
+X, Y = np.meshgrid(xlist, ylist)
+Z = (np.sin(X*2)) + (np.sin(Y*2))
+fig,ax=plt.subplots(1,1)
+
+
+cp = ax.contourf(X, Y, Z)
+fig.colorbar(cp) 
+
+# Add a colorbar to a plot
+ax.set_title('Average of 2 Measures, Multi-nodal Granularity')
+ax.set_xlabel('measure A granularity')
+ax.set_ylabel('measure B granularity')
+plt.show()
+plt.gcf().subplots_adjust(bottom=0.15)
+
+
+# In[97]:
+
+
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import cm
+from matplotlib.ticker import LinearLocator, FormatStrFormatter
+import matplotlib.pyplot as plt
+import numpy as np
+
+X = np.arange(0, 5, 0.25)
+Y = np.arange(0, 5, 0.25)
+X, Y = np.meshgrid(X, Y)
+
+Z = (np.sin(X*2)) + (np.sin(Y*2))
+
+fig = plt.figure()
+ax = fig.gca(projection='3d')
+surf = ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=cm.cool,
+    linewidth=0, antialiased=False)
+ax.set_zlim(-3, 3)
+
+ax.zaxis.set_major_locator(LinearLocator(10))
+ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
+
+fig.colorbar(surf, shrink=0.5, aspect=5)
+plt.title('Multi-nodal Granularity')
+
+
+
+# In[88]:
+
+
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import cm
+from matplotlib.ticker import LinearLocator, FormatStrFormatter
+import matplotlib.pyplot as plt
+import numpy as np
+
+X = np.arange(0, 5, 0.25)
+Y = np.arange(0, 5, 0.25)
+X, Y = np.meshgrid(X, Y)
+
+Z = (np.sin(X*2/3)) + (np.sin(Y*2/3))
+
+fig = plt.figure()
+ax = fig.gca(projection='3d')
+surf = ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=cm.cool,
+    linewidth=0, antialiased=False)
+ax.set_zlim(-3, 3)
+
+ax.zaxis.set_major_locator(LinearLocator(10))
+ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
+
+fig.colorbar(surf, shrink=0.5, aspect=5)
+plt.title('Mid-level Granularity')
+
+
+# In[95]:
+
+
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import cm
+from matplotlib.ticker import LinearLocator, FormatStrFormatter
+import matplotlib.pyplot as plt
+import numpy as np
+
+X = np.arange(0, 5, 0.25)
+Y = np.arange(0, 5, 0.25)
+X, Y = np.meshgrid(X, Y)
+
+Z = (X+Y)/2
+
+fig = plt.figure()
+ax = fig.gca(projection='3d')
+surf = ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=cm.cool,
+    linewidth=0, antialiased=False)
+ax.set_zlim(0, 5)
+
+ax.zaxis.set_major_locator(LinearLocator(10))
+ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
+
+fig.colorbar(surf, shrink=0.5, aspect=5)
+plt.title('Fine Granularity')
+
+
+# In[ ]:
+
+
+
+
